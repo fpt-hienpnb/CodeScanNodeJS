@@ -33,16 +33,16 @@ steps:
 
 - script: |
     ./codeql-runner-linux init \
-    --repository Pham-Nguyen-Bich-Hien/vmdx-test-scan-code \
-    --github-url https://oct.accesscdevops.com \
+    --repository fpt-hienpnb/CodeScanNodeJS.git \
+    --github-url https://github.com/ \
     --github-auth $GITHUB_PAT \
     --config-file .github/codeql-config.yml
   displayName: 'Initialize CodeQL Exeutable and create a CodeQL DB'
 
 - script: |
     ./codeql-runner-linux analyze \
-    --repository Pham-Nguyen-Bich-Hien/vmdx-test-scan-code \
-    --github-url https://oct.accesscdevops.com \
+    --repository fpt-hienpnb/CodeScanNodeJS.git \
+    --github-url https://github.com \
     --github-auth $GITHUB_PAT \
     --commit $(Build.SourceVersion) \
     ref $(Build.SourceBranch)
