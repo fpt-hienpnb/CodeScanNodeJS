@@ -14,7 +14,11 @@ steps:
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-
+- task: SnykSecurityScan@1
+  inputs:
+    testType: 'app'
+    monitorWhen: 'always'
+    failOnIssues: true
 - script: |
     npm install
     npm run build
